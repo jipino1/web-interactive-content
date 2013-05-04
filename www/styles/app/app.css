@@ -1,0 +1,224 @@
+@charset "utf-8";
+/* CSS Document */
+body, html { background: #f1f1f1; font-family: Tahoma, Arial, Verdana, sans-serif; }
+/* GLOBAL ATTRIBUTES */
+p, dd { color: #3e3e3e; }
+dd { padding-bottom: 5px; }
+dl { float: left; height: auto; padding-top: 15px; }
+dt { color: #9D7C08; }
+dt, dd { float: left; font-size: 10px; width: 100%; }
+a { color: #9d7c08; outline: none; text-decoration: none;}
+h1, h2, h3, h4, h5 { color: #3e3d3d; }
+
+/* Global */
+.left-arrow, .right-arrow { background: url('../../images/sprites/website.sprite.png') no-repeat; z-index: 9999; }
+#app-portfolio-gallery .left-arrow, #app-portfolio-gallery .right-arrow { background: url('../../images/sprites/arrows.png') no-repeat; z-index: 9999; }
+.home h2, .about h2, .olympian h2 { font-size: 18px; margin-left: 50px; text-align: left; }
+.more-content { display: none; }
+a.read-more { color: #993300; float: none; font-size: 10px; padding: 0; }
+#overlay { background-color: #000; display: none; margin: 0; opacity: 0.5; filter: alpha(opacity=50); position: absolute; width: 100%; z-index: 9998; }
+#image-container { background-color: #000; padding: 10px; z-index: 9999; }
+#image-container img { height: auto; }
+#image-container p { color: #fff; font-size: 11px; margin: 5px 0 0 5px; }
+
+#close-modal { background: url('../../images/sprites/website.sprite.png') no-repeat -90px 0; float: right; height: 30px; margin: -25px; text-indent: -9999px; width: 30px; }
+#close-modal:hover { background-position: -90px -30px; }
+
+header { width: 100%; }
+#app-header { background: none repeat #f6f6f6; height: 70px; }
+#app-header h1 { display: none }
+#app-header ul { float: right; margin-top: 27px; width: 200px; }
+#app-header li { float: left; font-style: italic; margin-left: 20px; text-align: center; }
+#logo { background: url('../../images/sprites/logo.png') no-repeat 0 0; float: left; height: 70px; margin: 0; text-indent: -9999px; width: 284px; }
+#app-main { width: 100%; }
+.wrapper { margin: 0 auto; width: 960px; }
+.wrapper p { margin-bottom: 20px; }
+
+#app-main .app-wrapper { padding: 20px 0 20px 0; }
+
+#intro { padding: 20px; }
+
+#work li { float: left; height: 450px; margin-left: -10px; padding: 10px 10px 20px 10px; }
+#work img { border-radius: 10px; box-shadow: 3px 3px 7px #000000; }
+#work p { font-size: 10px; }
+.column { float: left; padding: 0 20px 20px; width: 200px; }
+
+/* Trending carousel */
+#app-trending { float: left; heigth: auto; padding: 10px 0 10px 0; width: 100%; }
+#app-trending h2 { text-transform: capitalize; }
+#trending-carousel { float: left; padding: 20px 0 20px 20px; width: 924px; }
+#trending-carousel ul { float: left; margin-left: -25px; width: 20000em; }
+#trending-carousel li { background-color: #f2df9c; float: left; height: 160px; margin-left: 25px; overflow: hidden; width: 247px; 
+	-moz-box-shadow: 5px 5px 5px #888;
+	-webkit-box-shadow: 5px 5px 5px #888;
+	box-shadow: 5px 5px 5px #888;
+}
+#carousel-mask { float: left; height: 180px; margin-left: 25px; overflow: hidden; width: 815px; }
+#carousel-mask img { float: left; height: 48px; margin: 10px 0 0 10px; width: 48px; }
+#carousel-mask p { float:left; margin: 10px 0 0 10px; text-align: left; width: 70%; }
+#carousel-mask p:nth-child(2) { color: #fff; }
+
+.left-arrow, .right-arrow { background-color: #fff; border: 1px solid; box-shadow: 5px 5px 5px #888888; float: left; height: 160px; opacity: 0.5; text-indent: -9999px; width: 40px; }
+.left-arrow { background-position: -2px 46px; }
+.right-arrow { background-position: -45px 46px; }
+.left-arrow:hover, .right-arrow:hover { background-color: #ccc; }
+#trending-carousel li.trendCloneItem { margin-left: -247px; }
+
+/* THUMB GALLERY */
+#app-thumb-gallery{ /*background-color: #fdfaef;*/ float: left; overflow: hidden; padding: 10px 0; width: 960px; }
+#app-thumb-gallery .left-arrow,
+#app-thumb-gallery .right-arrow { display: block; float: left; height: 100px; width: 40px; }
+#app-thumb-gallery .right-arrow { float: right; }
+#app-thumb-gallery .left-arrow { background-position: 0 -88px; margin: 7px 0 0 10px; }
+#app-thumb-gallery .right-arrow { background-position: -32px -88px; margin: 7px 10px; }
+
+#thumb-gallery-carousel { float: left; /*padding: 20px 0 20px 6px;*/ overflow: hidden; width: 88%; }
+#thumb-gallery-carousel ul { float: left; margin-left: 15px; padding-bottom: 10px; width: 20000em; }
+#thumb-gallery-carousel li {  float: left;  margin: 8px 25px 0 0; }
+#thumb-gallery-carousel a { box-shadow: 3px 3px 5px #000; float: left; height: 100px; width: 100px; }
+#thumb-gallery-carousel a:hover { box-shadow: 5px 5px 5px #959191; }
+#thumb-gallery-carousel img { height: 100px; overflow: hidden; width: 100px; }
+#thumb-gallery-carousel li.thumbCloneItem { margin-left: -125px; }
+
+/* Client Info */
+#app-client-info { display: none; opacity: 0; }
+#app-client-info dl { width: 100%; }
+#app-client-info .column-left, #app-client-info .column-right { float: left; margin-right: 50px; }
+/* TO DO -remove */
+#work a.client-work { cursor: auto; }
+/* PORTFOLIO GALLERY */
+#app-portfolio-gallery { /*background-color: #000;*/ height: auto;/*620px;*/ /*margin: 0 0 0 112px;*/ position: absolute; width: auto; z-index: 9999; }
+#app-portfolio-gallery #image-container { /*height: 600px; padding: 10px; width: 800px;*/ }
+#portfolio-gallery { border: 1px solid #fff; display: none; opacity: 0; position: absolute; }
+#app-portfolio-gallery .left-arrow { background-color: #fff; background-position: 20px 175px; border: none; box-shadow: none; display: none; height: 412px; margin-left: -65px;/*margin: 220px 0 0 -86px;*/ width: 65px; }
+#app-portfolio-gallery .right-arrow { background-color: #fff; background-position: -50px 175px; border: none; box-shadow: none; display: none; height: 412px; margin-left: 722px;/*margin-top: 220px;*/ width: 65px; }
+#app-portfolio-gallery .left-arrow:hover, #app-portfolio-gallery .right-arrow:hover { background-color: #ccc; }
+/* CONTACT INFO */
+#contact-wrapper { background: #f6f6f6; border-radius: 10px; box-shadow: 3px 3px 7px #000; display: none; height: 81px; margin: 50px 0 0 672px; opacity: 0; padding: 10px; position: absolute; text-align: justify; width: 247px; z-index: 9999; }
+
+.close-modal { background: url('../../images/sprites/website.sprite.png') no-repeat -90px 0; float: right; height: 30px; text-indent: -9999px; width: 30px; }
+.close-modal:hover { background-position: -90px -30px; }
+#contact-wrapper .close-modal { margin: -25px; }
+/* FOOTER */
+footer { background: #ccc; float: left; height: 18px; padding: 18px 0; width: 100%; }
+footer p { margin: 0 auto; width: 960px; }
+/* ABOUT PAGE */
+.about .framed-image { background: url('../../images/views/frontimage.jpg') no-repeat; border: 1px solid #ccc; float: right; height: 477px; margin: 20px; width: 435px; }
+.about .wrapper p { float: left; margin: 20px 0 -5px 0; width: 450px; }
+
+/* ARTIST PAGE */
+.framed-image { float: left; margin: 20px; }
+.artist .wrapper p { float: left; margin-top: 20px; width: 450px; }
+
+.setLeftMargin { margin-left: 130px; }
+.setContainerWidth { width: 700px; }
+.aboutSectionHeight { height: 781px; }
+
+/* PHONE PORTRAIT VIEW */
+@media screen and (max-width: 320px) {
+	#app-header { height: 95px; }
+	#app-header h1 { background: url('../../images/sprites/logo.png') no-repeat 0 -71px; height: 37px; margin: 10px 0 0 25px; width: 150px; }
+	#app-header ul { margin-top: 4px; }
+	#contact-wrapper { margin: 94px 0 0 12px; }
+	
+	.wrapper { width: 300px; }
+	.column { padding: 0 48px 20px; }
+	
+	#app-trending, #app-thumb-gallery { display: none; }
+	footer p { width: 300px; }
+	
+	.about .framed-image { background: url('../../images/views/frontimage.mobile.portrait.jpg') no-repeat; height: 307px; margin-right: 8px; width: 280px; }
+	.about .wrapper p { margin-bottom: 7px; width: 300px; }
+}
+
+@media screen and (min-width: 321px) and (max-width: 533px) {
+	#app-header h1 { background: url('../../images/sprites/logo.png') no-repeat 0 -71px; height: 37px; margin: 10px 0 0 25px; width: 150px; }
+	#app-header ul { width: 175px; }
+	
+	.wrapper { width: 460px; }
+	.column { width: 185px; }
+	
+	#work a.client-work, 
+	#work dl,
+	#work p { width: 185px; }
+	
+	.about .framed-image { margin-right: 9px; }
+	.about .wrapper p { margin-bottom: 7px; }
+	
+	#contact-wrapper { margin-left: 170px; }
+	
+	#trending-carousel { padding-left: 40px; width: 420px; }
+	#carousel-mask { width: 272px; }
+	#app-thumb-gallery { display: none; }
+	
+	footer p { width: 400px; }
+}
+
+@media (device-height: 480px) and (device-width: 320px) and (orientation: landscape){
+/*@media screen and (min-width: 321px) and (max-width: 480px) {*/
+	#app-header h1 { background: url('../../images/sprites/logo.png') no-repeat 0 -71px; height: 37px; margin: 10px 0 0 25px; width: 150px; }
+	#app-header ul { width: 175px; }
+	
+	.wrapper { width: 460px; }
+	.column { width: 185px; }
+	
+	#work a.client-work, 
+	#work dl,
+	#work p { width: 185px; }
+	
+	.about .framed-image { margin-right: 9px; }
+	.about .wrapper p { margin-bottom: 7px; }
+	
+	#contact-wrapper { margin-left: 170px; }
+	
+	#trending-carousel { padding-left: 40px; width: 420px; }
+	#carousel-mask { width: 272px; }
+	#app-thumb-gallery { display: none; }
+	
+	footer p { width: 400px; }
+}
+
+/* IPHONE5 */
+@media (device-height: 568px) and (device-width: 320px) and (-webkit-min-device-pixel-ratio:2) and (orientation: landscape){
+/*@media screen and (min-width: 321px) and (max-width: 520px) {*/
+	#app-header h1 { background: url('../../images/logo.png') no-repeat 0 -71px; height: 37px; margin: 10px 0 0 25px; width: 150px; }
+	#app-header ul { width: 175px; }
+	
+	.wrapper, .wrapper p { width: 460px; }
+	.column { width: 185px; }
+	
+	.about .framed-image { margin-right: 9px; }
+	.about .wrapper p { margin-bottom: 7px; }
+	
+	#work a.client-work, 
+	#work dl,
+	#work p { width: 185px; }
+
+	#work a.client-work { float: left; }
+		
+	#contact-wrapper { margin-left: 170px; }
+	
+	#trending-carousel { padding-left: 40px; width: 420px; }
+	#carousel-mask { width: 272px; }
+	#app-thumb-gallery { display: none; }
+	
+	footer p { width: 400px; }
+}
+/* TABLET PORTRAIT VIEW */
+@media screen and (device-height: 1024px) and (device-width: 768) and (orientation: portrait){
+/*@media screen and (min-width: 481px) and (max-width: 780px) {*/
+	/* Homepage */
+	.wrapper { width: 728px; }
+	.about .wrapper p { margin-bottom: 7px; width: 400px; }
+	.about .framed-image { background: url('../../images/views/frontimage.mobile.portrait.jpg') no-repeat; height: 307px; margin-right: 9px; width: 280px; }
+	
+	#work .column:nth-child(4) li:nth-child(2) { display: none; }
+	#trending-carousel { padding-left: 38px; width: 689px; }
+	#carousel-mask { width: 544px; }	
+	#contact-wrapper { margin-left: 440px; }
+	
+	#app-thumb-gallery { display: none; width: 720px; }
+	#thumb-gallery-carousel { width: 83%; }
+	
+	footer p { width: 720px; }
+}
