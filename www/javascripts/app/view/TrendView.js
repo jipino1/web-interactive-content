@@ -61,9 +61,9 @@ define(function (require) {
 				//'url': 'awesome'
 			}));
 			
-			view.initTwitterCarousel();
+			//view.initTwitterCarousel();
 			
-			_$trendInterval = setInterval(view.resetTrendCarousel, 7200000);
+			//_$trendInterval = setInterval(view.resetTrendCarousel, 7200000);
 			//_$trendInterval = setInterval(view.resetTrendCarousel, 10000);
 		},
 		
@@ -96,15 +96,19 @@ define(function (require) {
 			}
 			$.ajax({
 				//'url': trendUrl,
-				'url': 'http://search.twitter.com/search.json?q='+ trendUrl,
-				'type': 'get',
-				'dataType': 'jsonp',
+				//'url': '/php/json.php',
+				url: 'http://search.twitter.com/search.json?q='+ trendUrl + '&callback=?',
+				type: 'get',
+				dataType: 'jsonp',
 				success: function(data){
-					view.parseRetrievedData(data);
+					var mydata = JSON.parse(data);
+					view.parseRetrievedData(mydata);
 				},
 				error: function(){
+					log('error');
 					$('#app-trending').animate({opacity:0}, 500, 'linear', function(){ $('#app-trending').hide(); });
-				}
+				}//,
+				//jsonp: 'jsonp'
 			});
 		},
 		

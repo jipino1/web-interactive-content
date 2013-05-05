@@ -44,7 +44,7 @@ header { width: 100%; }
 .column { float: left; padding: 0 20px 20px; width: 200px; }
 
 /* Trending carousel */
-#app-trending { float: left; heigth: auto; padding: 10px 0 10px 0; width: 100%; }
+#app-trending { display: none; float: left; heigth: auto; padding: 10px 0 10px 0; width: 100%; } /* TO DO: needs api fix */
 #app-trending h2 { text-transform: capitalize; }
 #trending-carousel { float: left; padding: 20px 0 20px 20px; width: 924px; }
 #trending-carousel ul { float: left; margin-left: -25px; width: 20000em; }
@@ -109,6 +109,8 @@ footer p { margin: 0 auto; width: 960px; }
 /* ARTIST PAGE */
 .framed-image { float: left; margin: 20px; }
 .artist .wrapper p { float: left; margin-top: 20px; width: 450px; }
+.artist #work li { height: 200px; margin-right: 80px; }
+.across { width: auto; }
 
 .setLeftMargin { margin-left: 130px; }
 .setContainerWidth { width: 700px; }

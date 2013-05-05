@@ -45,7 +45,7 @@ define(function (require) {
 			});*/
 			
 			view.imageGalleryView = new App.views.ImageGalleryView({
-				'el': '#app-portfolio-gallery'
+				'el': '#app-wrapper'
 			});
 			
 			view.portfolioView = new App.views.PortfolioView({

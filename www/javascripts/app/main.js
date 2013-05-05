@@ -10,7 +10,7 @@
 
 		require(['global'], function (App) {
 			App.initialize();
-
+			/*
 			require(['google-analytics']);
 
 			require(['helpers/analytics', 'facebook'], function (Analytics, Facebook) {
@@ -20,6 +20,7 @@
 				});
 				Analytics.socialTrackFacebook();
 			});
+			*/
 		});
 		// end require['global']
 	});

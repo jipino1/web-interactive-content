@@ -22,9 +22,16 @@ include_once('config.php');
 						array("src"=>$root."images/thumbs/art/trumpletMan.jpg", "fs_height"=>"356", "fs_width"=>"483", "client"=>"artist", "url"=>"/artist/"),
 						array("src"=>$root."images/thumbs/art/watercolors_5.jpg", "fs_height"=>"494", "fs_width"=>"650", "client"=>"artist", "url"=>"/artist/"),
 						array("src"=>$root."images/thumbs/art/watercolors_6.jpg", "fs_height"=>"486", "fs_width"=>"650", "client"=>"artist", "url"=>"/artist/"),
-						array("src"=>$root."images/thumbs/art/WWIIsoldiers_in_the_kitchen.jpg", "fs_height"=>"309", "fs_width"=>"650", "artist"=>"unknown", "url"=>"/artist/"),
+						array("src"=>$root."images/thumbs/art/WWIIsoldiers_in_the_kitchen.jpg", "fs_height"=>"309", "fs_width"=>"650", "client"=>"artist", "url"=>"/artist/"),
 						array("src"=>$root."images/thumbs/art/fireworks_print.jpg", "fs_height"=>"483", "fs_width"=>"353", "client"=>"artist", "url"=>"/artist/"),
-						array("src"=>$root."images/thumbs/art/printMan.jpg", "fs_height"=>"420", "fs_width"=>"650", "client"=>"artist", "url"=>"/artist/")
+						array("src"=>$root."images/thumbs/art/printMan.jpg", "fs_height"=>"420", "fs_width"=>"650", "client"=>"artist", "url"=>"/artist/"),
+						array("src"=>$root."images/thumbs/art/img_1.jpg", "fs_height"=>"557", "fs_width"=>"650", "client"=>"artist", "url"=>"/artist/"),
+						array("src"=>$root."images/thumbs/art/img_2.jpg", "fs_height"=>"461", "fs_width"=>"650", "client"=>"artist", "url"=>"/artist/"),
+						array("src"=>$root."images/thumbs/art/img_3.jpg", "fs_height"=>"488", "fs_width"=>"650", "client"=>"artist", "url"=>"/artist/"),
+						array("src"=>$root."images/thumbs/art/img_4.jpg", "fs_height"=>"442", "fs_width"=>"650", "client"=>"artist", "url"=>"/artist/"),
+						array("src"=>$root."images/thumbs/art/img_5.jpg", "fs_height"=>"570", "fs_width"=>"650", "client"=>"artist", "url"=>"/artist/"),
+						array("src"=>$root."images/thumbs/art/img_6.jpg", "fs_height"=>"507", "fs_width"=>"650", "client"=>"artist", "url"=>"/artist/"),
+						array("src"=>$root."images/thumbs/art/img_7.jpg", "fs_height"=>"674", "fs_width"=>"650", "client"=>"artist", "url"=>"/artist/")
 					)
 				);
 				

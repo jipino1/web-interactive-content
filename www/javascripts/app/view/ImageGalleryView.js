@@ -40,7 +40,8 @@ define(function (require) {
 
 		'events': {
 			'click #portfolio-right': 'displayNextImage',
-			'click #portfolio-left': 'displayPreviousImage'
+			'click #portfolio-left': 'displayPreviousImage',
+			'click #work a' : 'getCurrentTarget'
 			//'click #app-thumb-gallery .left-arrow': 'moveCarouselLeft'
 		},
 
@@ -63,9 +64,18 @@ define(function (require) {
 			var view = this;
 
 			view.imageGalleryTemplate = swig.compile(App.templates.ImageGalleryTemplate);
-			view.$el.append(view.imageGalleryTemplate({
+			view.$el.find('#app-portfolio-gallery').append(view.imageGalleryTemplate({
 				
 			}));
+		},
+		
+		'getCurrentTarget' : function(e){
+			e.preventDefault();
+			
+			var view = this,
+				$currentTarget = $(e.currentTarget);
+				
+			view.displaySelectedImage($currentTarget);
 		},
 		
 		'displaySelectedImage' : function(target){
@@ -89,27 +99,28 @@ define(function (require) {
 			_$galleryLeftArrow = $('#app-portfolio-gallery .left-arrow');
 			
 			if(_$body.hasClass('artist')){
-				var imgLeftMargin = view.calculateImageLeftMargin(imgWidth);
 				_$portfolioContainer.addClass('setLeftMargin');
 				_$imageContainer.addClass('setContainerWidth');
-			//	_$imageContainer.find('img').css({'margin-left' : imgLeftMargin + 'px' });
-				$('#image-container img').css({'opacity' : '0.5' });
 			}else{
 				_$portfolioContainer.css({ 'margin-left' : imgContainerMarginLeft + 'px' });
 				_$imageContainer.css({ 'height' : imgHeight + 'px', 'width' : imgWidth + 'px' });
-				//_$galleryRightArrow.css({ 'margin-left' : (imgWidth + 29) + 'px' });
-				//_$portfolioGallery.css({'margin-top' : imgContainerMarginTop + 'px' });
 			}
 			
 			_currentImageIndex = Number(target.find('img').attr('data-position'));
 			_$imageContainer.append(imgSrcString);
 			
+			if(_$body.hasClass('artist')){
+				_$imageContainer.find('img').css({'margin-left' : view.calculateImageLeftMargin(imgWidth) + 'px' });
+			}
+		
 			if(_$body.hasClass('about')){
 				_$overlay.show().addClass('aboutSectionHeight');
 			}else{
 				_$overlay.removeClass('aboutSectionHeight');
 				_$overlay.show().css({ 'height' : _$document.height() + 'px' });
 			}
+			
+			
 			_$portfolioGallery.show();
 			_$portfolioGallery.animate({
 				opacity: 1
@@ -216,16 +227,17 @@ define(function (require) {
 			if(_$body.hasClass('artist')){
 				_$portfolioContainer.addClass('setLeftMargin');
 				_$imageContainer.addClass('setContainerWidth');
-				_$imageContainer.find('img').css({'margin-left' : view.calculateImageLeftMargin(imgWidth) + 'px' });
 			}else{
-				_$portfolioContainer.css({'margin-left' : imgContainerLeftMargin + 'px' });
-				
+				_$portfolioContainer.css({'margin-left' : imgContainerLeftMargin + 'px' });				
 				_$imageContainer.css({'height' : imgContainerHeight + 'px', 'width' : imgContainerWidth + 'px' });
-			//_$galleryRightArrow.css({ 'margin-left' : (imgContainerWidth + 29) + 'px' });
 			}
 			
 			_$galleryCarousel.find('li:nth-child(' + (_currentImageIndex + 1) + ') a').addClass('active-image');
 			_$imageContainer.append(imgString);
+			
+			if(_$body.hasClass('artist')){
+				_$imageContainer.find('img').css({'margin-left' : view.calculateImageLeftMargin(imgContainerWidth) + 'px' });
+			}
 
 			_$imageContainer.animate({
 				opacity: 1

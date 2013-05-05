@@ -57,7 +57,7 @@ define(function (require) {
 		'displayContent' : function(e){
 			e.preventDefault();
 
-			log('client work');
+		//	log('client work');
 		//	var view = this,
 		//				$currentTargetData = $(e.currentTarget).attr('data-client');
 
