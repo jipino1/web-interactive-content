@@ -101,10 +101,13 @@ define(function (require) {
 			if(_$body.hasClass('artist')){
 				_$portfolioContainer.addClass('setLeftMargin');
 				_$imageContainer.addClass('setContainerWidth');
+				_$portfolioGallery.css({'height': (imgHeight - 17) + 'px'});
 			}else{
 				_$portfolioContainer.css({ 'margin-left' : imgContainerMarginLeft + 'px' });
 				_$imageContainer.css({ 'height' : imgHeight + 'px', 'width' : imgWidth + 'px' });
 			}
+			
+			
 			
 			_currentImageIndex = Number(target.find('img').attr('data-position'));
 			_$imageContainer.append(imgSrcString);
@@ -227,10 +230,12 @@ define(function (require) {
 			if(_$body.hasClass('artist')){
 				_$portfolioContainer.addClass('setLeftMargin');
 				_$imageContainer.addClass('setContainerWidth');
+				_$portfolioGallery.css({'height': (imgContainerHeight - 17) + 'px'});
 			}else{
 				_$portfolioContainer.css({'margin-left' : imgContainerLeftMargin + 'px' });				
 				_$imageContainer.css({'height' : imgContainerHeight + 'px', 'width' : imgContainerWidth + 'px' });
 			}
+			
 			
 			_$galleryCarousel.find('li:nth-child(' + (_currentImageIndex + 1) + ') a').addClass('active-image');
 			_$imageContainer.append(imgString);

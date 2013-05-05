@@ -89,7 +89,7 @@ header { width: 100%; }
 /* PORTFOLIO GALLERY */
 #app-portfolio-gallery { /*background-color: #000;*/ height: auto;/*620px;*/ /*margin: 0 0 0 112px;*/ position: absolute; width: auto; z-index: 9999; }
 #app-portfolio-gallery #image-container { /*height: 600px; padding: 10px; width: 800px;*/ }
-#portfolio-gallery { border: 1px solid #fff; display: none; opacity: 0; position: absolute; }
+#portfolio-gallery { border: 1px solid #fff; display: none; height: 410px; opacity: 0; position: absolute; }
 #app-portfolio-gallery .left-arrow { background-color: #fff; background-position: 20px 175px; border: none; box-shadow: none; display: none; height: 412px; margin-left: -65px;/*margin: 220px 0 0 -86px;*/ width: 65px; }
 #app-portfolio-gallery .right-arrow { background-color: #fff; background-position: -50px 175px; border: none; box-shadow: none; display: none; height: 412px; margin-left: 722px;/*margin-top: 220px;*/ width: 65px; }
 #app-portfolio-gallery .left-arrow:hover, #app-portfolio-gallery .right-arrow:hover { background-color: #ccc; }
