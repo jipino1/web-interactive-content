@@ -10,6 +10,8 @@ define(function (require) {
 		_ = require('underscore'),
 		App = require('global'),
 		self;
+		
+	var _orientation;
 
 	self = {
 
@@ -44,6 +46,23 @@ define(function (require) {
 		 */
 		'isIpad': function () {
 			return (navigator.userAgent.match(/iPad/i) === null) ? false : true;
+		},
+		
+		'getOrientation' : function(){
+			switch(window.orientation){
+				case -90:
+				case 90:
+					_orientation = 'landscave_view';
+					break;
+				default:
+					_orientation = 'portrait_view';
+			}
+			
+			return _orientation;
+		},
+		
+		'setOrientation' : function(orientation){
+			_orientation = orientation;
 		},
 
 		'polyFillMatchMedia': function () {

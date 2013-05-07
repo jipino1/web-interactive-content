@@ -9,7 +9,10 @@ define(function (require) {
 	var $ = require('jquery'),
 		_ = require('underscore'),
 		Backbone = require('backbone'),
-		App = require('global');
+		App = require('global'),
+		Utilities = require('helpers/utilities');
+		
+	var _$window = $(window);
 
 	return Backbone.View.extend({
 
@@ -51,8 +54,21 @@ define(function (require) {
 			view.portfolioView = new App.views.PortfolioView({
 				'el': '#app-main'
 			});
+			
+			view.deviceOrientationListener();
+		},
+		
+		'deviceOrientationListener' : function(){
+			var view = this;
+			
+			_$window.onorientationchange = function(){
+				if(Utilities.getOrientation() == 'landscape_view'){
+					Utilities.setOrientation('portrait_view');	
+				}else{
+					Utilities.setOrientation('landscape_view');	
+				}
+			}
 		}
-
 	});
 
 });
