@@ -131,9 +131,12 @@ footer p { margin: 0 auto; width: 960px; }
 	
 	.about .framed-image { background: url('../../images/views/frontimage.mobile.portrait.jpg') no-repeat; height: 307px; margin-right: 8px; width: 280px; }
 	.about .wrapper p { margin-bottom: 7px; width: 300px; }
+	
+	.artist .framed-image { background: url('../../images/views/artist.framed.image.mobile.jpg') no-repeat; height: 312px; margin-left: 35px; width: 230px; }
+	.artist .across { width: 200px; }
 }
-
-@media screen and (min-width: 321px) and (max-width: 533px) {
+/*@media screen and (min-width: 321px) and (max-width: 480px){*/
+@media screen and (min-width: 321px) and (max-width: 533px){
 	#app-header h1 { background: url('../../images/sprites/logo.png') no-repeat 0 -71px; height: 37px; margin: 10px 0 0 25px; width: 150px; }
 	#app-header ul { width: 175px; }
 	
@@ -154,6 +157,14 @@ footer p { margin: 0 auto; width: 960px; }
 	#app-thumb-gallery { display: none; }
 	
 	footer p { width: 400px; }
+	
+	.artist .framed-image { margin-left: 90px; }
+	.artist .across { width: 420px; }
+	.artist #work li { margin-right: 15px; }
+	
+	.artist #overlay,
+	.artist #app-portfolio-gallery { display: none; }
+	
 }
 
 @media (device-height: 480px) and (device-width: 320px) and (orientation: landscape){

@@ -52,12 +52,12 @@ define(function (require) {
 			switch(window.orientation){
 				case -90:
 				case 90:
-					_orientation = 'landscave_view';
+					_orientation = 'landscape_view';
 					break;
 				default:
 					_orientation = 'portrait_view';
 			}
-			
+
 			return _orientation;
 		},
 		

@@ -62,6 +62,7 @@ define(function (require) {
 			var view = this;
 			
 			_$window.onorientationchange = function(){
+				alert('here');
 				if(Utilities.getOrientation() == 'landscape_view'){
 					Utilities.setOrientation('portrait_view');	
 				}else{

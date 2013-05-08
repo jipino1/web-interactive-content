@@ -11,7 +11,8 @@ define(function (require) {
 		Backbone = require('backbone'),
 		App = require('global'),
 		Swig = require('swig'),
-		Easing = require('easing');
+		Easing = require('easing'),
+		Utilities = require('helpers/utilities');
 
 	var _$body = $(document.body),
 		_$document = $(document),
@@ -75,7 +76,16 @@ define(function (require) {
 			var view = this,
 				$currentTarget = $(e.currentTarget);
 				
-			view.displaySelectedImage($currentTarget);
+			if(Utilities.isIpad()){
+				if(Utilities.getOrientation() == 'landscape_view'){	
+					view.displaySelectedImage($currentTarget);
+				}else{
+					log('display message');
+				}
+			}else{
+				view.displaySelectedImage($currentTarget);
+			}
+			
 		},
 		
 		'displaySelectedImage' : function(target){
@@ -213,8 +223,6 @@ define(function (require) {
 		},
 		
 		'addPortfolioImage' : function(){
-			//console.log(_imageArrayProperties);
-			//console.log(_imageArrayProperties[1][1]);
 			var view = this,		
 				imgContainerHeight = Number(_imageArrayProperties[_currentImageIndex][1]) + 40,
 				imgContainerWidth = Number(_imageArrayProperties[_currentImageIndex][2]),
