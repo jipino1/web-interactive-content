@@ -107,6 +107,7 @@ footer p { margin: 0 auto; width: 960px; }
 .about .wrapper p { float: left; margin: 20px 0 -5px 0; width: 450px; }
 
 /* ARTIST PAGE */
+.artist #logo { background-position: 0 -108px; width: 450px; }
 .artist .framed-image { background: url('/images/views/artist.framed.image.jpg') no-repeat; float: left; height: 407px; margin: 20px; width: 300px; }
 .artist .wrapper p { float: left; margin-top: 20px; width: 450px; }
 .artist #work li { height: 200px; margin-right: 80px; }

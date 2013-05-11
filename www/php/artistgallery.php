@@ -31,7 +31,10 @@ include_once('config.php');
 						array("src"=>$root."images/thumbs/art/img_4.jpg", "fs_height"=>"442", "fs_width"=>"650", "client"=>"artist", "url"=>"/artist/"),
 						array("src"=>$root."images/thumbs/art/img_5.jpg", "fs_height"=>"570", "fs_width"=>"650", "client"=>"artist", "url"=>"/artist/"),
 						array("src"=>$root."images/thumbs/art/img_6.jpg", "fs_height"=>"507", "fs_width"=>"650", "client"=>"artist", "url"=>"/artist/"),
-						array("src"=>$root."images/thumbs/art/img_7.jpg", "fs_height"=>"674", "fs_width"=>"650", "client"=>"artist", "url"=>"/artist/")
+						array("src"=>$root."images/thumbs/art/img_7.jpg", "fs_height"=>"674", "fs_width"=>"650", "client"=>"artist", "url"=>"/artist/"),
+						array("src"=>$root."images/thumbs/art/img_8.jpg", "fs_height"=>"1195", "fs_width"=>"650", "client"=>"artist", "url"=>"/artist/"),
+						array("src"=>$root."images/thumbs/art/img_9.jpg", "fs_height"=>"917", "fs_width"=>"650", "client"=>"artist", "url"=>"/artist/"),
+						array("src"=>$root."images/thumbs/art/img_10.jpg", "fs_height"=>"905", "fs_width"=>"650", "client"=>"artist", "url"=>"/artist/")
 					)
 				);
 				
