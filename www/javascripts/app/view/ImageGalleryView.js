@@ -76,16 +76,17 @@ define(function (require) {
 			var view = this,
 				$currentTarget = $(e.currentTarget);
 				
-			if(Utilities.isIpad()){
-				if(Utilities.getOrientation() == 'landscape_view'){	
-					view.displaySelectedImage($currentTarget);
+			if(!Utilities.isMobile()){
+				if(Utilities.isIpad()){
+					if(Utilities.getOrientation() == 'landscape_view'){	
+						view.displaySelectedImage($currentTarget);
+					}else{
+						log('display message');
+					}
 				}else{
-					log('display message');
+					view.displaySelectedImage($currentTarget);
 				}
-			}else{
-				view.displaySelectedImage($currentTarget);
 			}
-			
 		},
 		
 		'displaySelectedImage' : function(target){
@@ -115,9 +116,7 @@ define(function (require) {
 			}else{
 				_$portfolioContainer.css({ 'margin-left' : imgContainerMarginLeft + 'px' });
 				_$imageContainer.css({ 'height' : imgHeight + 'px', 'width' : imgWidth + 'px' });
-			}
-			
-			
+			}			
 			
 			_currentImageIndex = Number(target.find('img').attr('data-position'));
 			_$imageContainer.append(imgSrcString);

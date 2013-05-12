@@ -48,6 +48,24 @@ define(function (require) {
 			return (navigator.userAgent.match(/iPad/i) === null) ? false : true;
 		},
 		
+		'isMobile' : function() {
+			var isMobileDevice = false;
+			
+			$.ajax({
+				url: '/php/mobile.detection.php',
+				dataType: 'json',
+				type: 'get',
+				success: function(data){
+					isMobileDevice = data.isMobile;
+				},
+				error: function(){
+					log('error calling detection');
+				}
+			});
+			
+			return isMobileDevice;
+		},
+		
 		'getOrientation' : function(){
 			switch(window.orientation){
 				case -90:
