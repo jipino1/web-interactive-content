@@ -54,21 +54,6 @@ define(function (require) {
 			view.portfolioView = new App.views.PortfolioView({
 				'el': '#app-main'
 			});
-			
-			view.deviceOrientationListener();
-		},
-		
-		'deviceOrientationListener' : function(){
-			var view = this;
-			
-			_$window.onorientationchange = function(){
-				alert('here');
-				if(Utilities.getOrientation() == 'landscape_view'){
-					Utilities.setOrientation('portrait_view');	
-				}else{
-					Utilities.setOrientation('landscape_view');	
-				}
-			}
 		}
 	});
 

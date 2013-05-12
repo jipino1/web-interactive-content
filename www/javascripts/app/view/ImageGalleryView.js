@@ -16,6 +16,7 @@ define(function (require) {
 
 	var _$body = $(document.body),
 		_$document = $(document),
+		_$window = window,
 		_$imageContainer,
 		_$portfolioContainer = $('#app-portfolio-gallery'),
 		_$portfolioGallery,
@@ -35,7 +36,8 @@ define(function (require) {
 		_offsetTransition = -25,
 		_carouselCounter = 0,
 		_dataLength,
-		_currentImageIndex = 0;
+		_currentImageIndex = 0,
+		_isGalleryViewable = false;
 		
 	return Backbone.View.extend({
 
@@ -68,6 +70,15 @@ define(function (require) {
 			view.$el.find('#app-portfolio-gallery').append(view.imageGalleryTemplate({
 				
 			}));
+			
+			_$window.addEventListener('orientationchange', function(){
+				if(_isGalleryViewable && Utilities.getOrientation() == 'portrait_view'){
+					_$portfolioContainer.hide();
+					view.hideSelectedImage();
+				}
+			});
+			
+			Utilities.detectMobileDevice();
 		},
 		
 		'getCurrentTarget' : function(e){
@@ -75,10 +86,11 @@ define(function (require) {
 			
 			var view = this,
 				$currentTarget = $(e.currentTarget);
-				
+
 			if(!Utilities.isMobile()){
 				if(Utilities.isIpad()){
 					if(Utilities.getOrientation() == 'landscape_view'){	
+						_isGalleryViewable = true;
 						view.displaySelectedImage($currentTarget);
 					}else{
 						log('display message');
@@ -102,6 +114,7 @@ define(function (require) {
 				imgSrcString += '<p>'+ view.portfolioCollection.getSelectedText(target.find('img').attr('data-client')) +'</p>';
 			}
 			
+			_$portfolioContainer.show();
 			_$galleryCarousel = $('#thumb-gallery-carousel');
 			_$imageContainer = $('#image-container');
 			_$portfolioGallery = $('#portfolio-gallery');
@@ -145,19 +158,19 @@ define(function (require) {
 			_$closeModal.on('click', function(e){
 				e.preventDefault();
 				
-				view.hideSelectedImage(e);
+				view.hideSelectedImage();
+				_isGalleryViewable = false;
 			});			
 			
 			_$overlay.on('click', function(e){
 				e.preventDefault();
 				
-				view.hideSelectedImage(e);
+				view.hideSelectedImage();
+				_isGalleryViewable = false;
 			});
 		},
 		
-		'hideSelectedImage' : function(e){
-			e.preventDefault();
-			
+		'hideSelectedImage' : function(){
 			_$portfolioGallery.animate({
 				opacity: 0
 			}, 300, 'linear', function(){
@@ -270,12 +283,6 @@ define(function (require) {
 		
 		'getFullSizePath' : function(path){
 			return path.replace('thumbs', 'fullsize');
-		},
-		
-		'hideSelectedImageNow' : function(e){
-			e.preventDefault();
-			
-			log('move left');
 		}
 	});
 

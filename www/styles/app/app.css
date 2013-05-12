@@ -135,6 +135,9 @@ footer p { margin: 0 auto; width: 960px; }
 	
 	.artist .framed-image { background: url('../../images/views/artist.framed.image.mobile.jpg') no-repeat; height: 312px; margin-left: 35px; width: 230px; }
 	.artist .across { width: 200px; }
+	.artist #logo { background-position: 3px -180px; width: 300px; }
+	.artist #app-header ul { margin-top: -8px; }
+	.artist #work li { margin-right: 0; }
 }
 /*@media screen and (min-width: 321px) and (max-width: 480px){*/
 @media screen and (min-width: 321px) and (max-width: 533px){
@@ -159,8 +162,9 @@ footer p { margin: 0 auto; width: 960px; }
 	
 	footer p { width: 400px; }
 	
+	.artist #app-header ul { margin-top: 0; }
 	.artist .framed-image { margin-left: 90px; }
-	.artist .across { width: 420px; }
+	.artist .across { width: 185px; }
 	.artist #work li { margin-right: 15px; }
 	
 	.artist #overlay,
@@ -216,6 +220,8 @@ footer p { margin: 0 auto; width: 960px; }
 	#carousel-mask { width: 272px; }
 	#app-thumb-gallery { display: none; }
 	
+	.artist #app-header ul { margin-top: -15px; }
+	
 	footer p { width: 400px; }
 }
 /* TABLET PORTRAIT VIEW */
@@ -237,7 +243,8 @@ footer p { margin: 0 auto; width: 960px; }
 	
 	.artist .framed-image { background: url('../../images/views/artist.framed.image.mobile.jpg') no-repeat; height: 312px; width: 230px; }
 	.artist .column { padding: 0 14px 20px; }
+	.artist #work .across { margin-left: 15px; padding-right: 0; }
 	.artist #work .across li { margin-right: 22px; }
-	 
+	.artist #work .column:nth-child(4) li:nth-child(2) { display: block; }
 	footer p { width: 720px; }
 }

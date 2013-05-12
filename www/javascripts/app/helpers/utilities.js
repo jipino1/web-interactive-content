@@ -11,7 +11,8 @@ define(function (require) {
 		App = require('global'),
 		self;
 		
-	var _orientation;
+	var _orientation,
+		_isMobileDevice = false;
 
 	self = {
 
@@ -48,22 +49,22 @@ define(function (require) {
 			return (navigator.userAgent.match(/iPad/i) === null) ? false : true;
 		},
 		
-		'isMobile' : function() {
-			var isMobileDevice = false;
-			
+		'detectMobileDevice' : function() {
 			$.ajax({
 				url: '/php/mobile.detection.php',
 				dataType: 'json',
 				type: 'get',
 				success: function(data){
-					isMobileDevice = data.isMobile;
+					_isMobileDevice = Boolean(data.isMobile);
 				},
 				error: function(){
 					log('error calling detection');
 				}
 			});
-			
-			return isMobileDevice;
+		},
+		
+		'isMobile' : function(){
+			return _isMobileDevice;
 		},
 		
 		'getOrientation' : function(){
