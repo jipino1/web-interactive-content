@@ -71,13 +71,6 @@ define(function (require) {
 				
 			}));
 			
-			_$window.addEventListener('orientationchange', function(){
-				if(_isGalleryViewable && Utilities.getOrientation() == 'portrait_view'){
-					_$portfolioContainer.hide();
-					view.hideSelectedImage();
-				}
-			});
-			
 			Utilities.detectMobileDevice();
 		},
 		
@@ -131,6 +124,9 @@ define(function (require) {
 				_$imageContainer.css({ 'height' : imgHeight + 'px', 'width' : imgWidth + 'px' });
 			}			
 			
+			$('html, body').animate({scrollTop: '0px'}, 800);
+			
+			_isGalleryViewable = true;
 			_currentImageIndex = Number(target.find('img').attr('data-position'));
 			_$imageContainer.append(imgSrcString);
 			
@@ -144,7 +140,6 @@ define(function (require) {
 				_$overlay.removeClass('aboutSectionHeight');
 				_$overlay.show().css({ 'height' : _$document.height() + 'px' });
 			}
-			
 			
 			_$portfolioGallery.show();
 			_$portfolioGallery.animate({
@@ -283,6 +278,17 @@ define(function (require) {
 		
 		'getFullSizePath' : function(path){
 			return path.replace('thumbs', 'fullsize');
+		},
+		
+		'getGalleryVisibility' : function(){
+			return _isGalleryViewable;
+		},
+		
+		'removeGalleryOnPortraitView' : function(){
+			var view = this;
+			
+			_$portfolioContainer.hide();
+			view.hideSelectedImage();
 		}
 	});
 

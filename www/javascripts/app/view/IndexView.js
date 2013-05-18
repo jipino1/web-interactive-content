@@ -12,7 +12,7 @@ define(function (require) {
 		App = require('global'),
 		Utilities = require('helpers/utilities');
 		
-	var _$window = $(window);
+	var _$window = window;
 
 	return Backbone.View.extend({
 
@@ -53,6 +53,16 @@ define(function (require) {
 			
 			view.portfolioView = new App.views.PortfolioView({
 				'el': '#app-main'
+			});
+			
+			_$window.addEventListener('orientationchange', function(){
+				if(view.imageGalleryView.getGalleryVisibility() && Utilities.getOrientation() == 'portrait_view'){
+					view.imageGalleryView.removeGalleryOnPortraitView();
+				}
+			//	if(_isGalleryViewable && Utilities.getOrientation() == 'portrait_view'){
+			//		_$portfolioContainer.hide();
+			//		view.hideSelectedImage();
+			//	}
 			});
 		}
 	});
