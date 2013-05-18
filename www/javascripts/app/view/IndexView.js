@@ -59,10 +59,6 @@ define(function (require) {
 				if(view.imageGalleryView.getGalleryVisibility() && Utilities.getOrientation() == 'portrait_view'){
 					view.imageGalleryView.removeGalleryOnPortraitView();
 				}
-			//	if(_isGalleryViewable && Utilities.getOrientation() == 'portrait_view'){
-			//		_$portfolioContainer.hide();
-			//		view.hideSelectedImage();
-			//	}
 			});
 		}
 	});
