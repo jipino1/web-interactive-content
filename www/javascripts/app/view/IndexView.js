@@ -34,10 +34,10 @@ define(function (require) {
 			view.subview = new App.views.SubView({
 				'el': '#app-wrapper'
 			});
-			
+			/*
 			view.trendView = new App.views.TrendView({
 				'el': '#app-trending'
-			});
+			});*/
 			
 			view.thumbGalleryView = new App.views.ThumbGalleryView({
 				'el': '#app-thumb-gallery'

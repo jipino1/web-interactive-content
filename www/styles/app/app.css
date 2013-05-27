@@ -234,6 +234,7 @@ footer p { margin: 0 auto; width: 960px; }
 	.artist #work li { margin-right: 0; }
 	.artist #work .column:nth-child(5) { width: 435px; }
 	.artist #work .column:nth-child(5) li:first-child { margin-right: 15px; }
+	.artist .across { width: 200px; }
 }
 
 /* IPHONE5 */
@@ -244,7 +245,7 @@ footer p { margin: 0 auto; width: 960px; }
 	#app-header ul { width: 175px; }
 
 	.wrapper, .wrapper p { width: 500px; }
-	.column { width: 185px; margin-right: 30px; }
+	.column { width: 185px; margin-right: 15px; }
 	
 	#intro { width: 500px; }
 	#app-client-info { display: none; }
@@ -271,9 +272,8 @@ footer p { margin: 0 auto; width: 960px; }
 	#carousel-mask { width: 272px; }
 	#app-thumb-gallery { display: none; }
 	
-	.artist #app-header ul { margin-top: -15px; }
 	.artist #logo { background-position: 3px -180px; width: 300px; }
-	.artist #app-header ul { margin-top: -20px; }
+	.artist #app-header ul { margin-top: 27px; }
 	.artist #work li { margin-right: 0; }
 	.artist #work .column:nth-child(5) { width: 435px; }
 	.artist #work .column:nth-child(5) li:first-child { margin-right: 15px; }
