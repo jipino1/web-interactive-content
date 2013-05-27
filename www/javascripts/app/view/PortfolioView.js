@@ -14,18 +14,18 @@ define(function (require) {
 		Easing = require('easing');
 		
 	var _$appClients = $('#app-clients'),
-		_$appClientInfo = $('#app-client-info'),
+		//_$appClientInfo = $('#app-client-info'),
 		_$appThumbGallery = $('#app-thumb-gallery'),
 		_$carouselItems;
 
 	var _currentSection = 'portfolio',
-		_jsonData;
+		_jsonData,
+		_doOnce = false;
 	
 	return Backbone.View.extend({
-
+		'el' : '#app-client-info',
+		
 		'events': {
-			//'click #app-clients a' : 'displayContent'
-			//'click #app-main .client-work' : 'displayContent'
 		},
 
 		'initialize': function (options) {
@@ -33,8 +33,8 @@ define(function (require) {
 
 			_.bindAll(this);
 			
-			//Events.bind('display-subview', view.displaySubViewContent);
-
+			Events.bind('retrieve-client-data', view.retrievedClientData);
+			
 			view.render();
 
 			log('Backbone : Global : PortfolioView : Initialized');
@@ -43,15 +43,28 @@ define(function (require) {
 		'render': function () {
 			var view = this;
 			
-			view.appClientInfo = this.$el.find('#app-client-info');
-			view.appMain = this.$el;
+		//	view.appClientInfo = this.$el.find('#app-client-info');
+		//	view.appMain = this.$el;
 			
-			this.$el.find('.client-work').on('click', function(e){
-				e.preventDefault();
+		//	this.$el.find('.client-work').on('click', function(e){
+		//		e.preventDefault();
 				
 				//var currentDataClient = $(e.currentTarget).attr('href');
 				//view.obtainClientInfo(currentDataClient);
+		//	});
+		},
+		
+		'retrievedClientData' : function(data){
+			var view = this,
+				$backButton = view.$el.find('#back');
+				
+			$backButton.on('click', function(e){
+				e.preventDefault();
+				
+				Events.trigger('return-to-stage');
 			});
+			
+			view.obtainClientInfo(data);
 		},
 		
 		'displayContent' : function(e){
@@ -67,6 +80,9 @@ define(function (require) {
 		'obtainClientInfo' : function(targetData){
 			var view = this;
 			
+			if(!_doOnce){
+				_doOnce = true;
+			
 			$.ajax({
 				url: '/php/clientinfo.php',
 				type: 'post',
@@ -76,8 +92,9 @@ define(function (require) {
 				},
 				success: function(dataInfo){
 					//log('success on call, process info');
-					_jsonData = dataInfo; //view.processClientData(dataInfo);
-					view.hideCurrentView();
+				//	_jsonData = dataInfo; //view.processClientData(dataInfo);
+					view.processClientData(dataInfo)
+				//	view.hideCurrentView();
 				//	if(_currentSection == 'portfolio'){
 				//		view.hidePortfolioView();	
 				//	}else{
@@ -87,6 +104,7 @@ define(function (require) {
 					log('error on call');
 				}					
 			});
+			}
 		},
 		
 		'displaySubViewContent' : function(targetData){
@@ -132,38 +150,29 @@ define(function (require) {
 		'processClientData' : function(clientData){
 			var view = this;
 			
-			view.appClientInfo = $('#app-client-info');
-			view.appClientInfo.find('.type').text(clientData['clientInfo'][0]['type']);
-			view.appClientInfo.find('.status').text(clientData['clientInfo'][0]['status']);
-			view.appClientInfo.find('.url').text(clientData['clientInfo'][0]['url']);
-
-			view.appClientInfo.find('p').text(clientData['clientInfo'][0]['copy']);
+			this.$el.find('.client').text(clientData['clientInfo'][0]['client']);
+			this.$el.find('.type').text(clientData['clientInfo'][0]['type']);
 			
-			view.appClientInfo.find('.column-left').append('<img src="'+ clientData['clientInfo'][0]['first-image-path'] +'" />');
-			view.appClientInfo.find('.column-right').append('<img src="'+ clientData['clientInfo'][0]['second-image-path'] +'" />');
+			if(clientData['clientInfo'][0]['url'] != 'N/A'){
+				this.$el.find('.url').attr('href', clientData['clientInfo'][0]['url']);
+			}
 			
-			view.appClientInfo.show();
-			view.appClientInfo.animate({
-				opacity: 1
-			}, 500, 'linear', function(){
-				_currentSection = 'portfolio-subview';
-			});	
-			/*
-			_$appClientInfo.find('.type').text(clientData['clientInfo'][0]['type']);
-			_$appClientInfo.find('.status').text(clientData['clientInfo'][0]['status']);
-			_$appClientInfo.find('.url').text(clientData['clientInfo'][0]['url']);
-
-			_$appClientInfo.find('p').text(clientData['clientInfo'][0]['copy']);
+			this.$el.find('.url').text(clientData['clientInfo'][0]['url']);
 			
-			_$appClientInfo.find('.column-left').append('<img src="'+ clientData['clientInfo'][0]['first-image-path'] +'" />');
-			_$appClientInfo.find('.column-right').append('<img src="'+ clientData['clientInfo'][0]['second-image-path'] +'" />');
+			this.$el.find('.column-left').append('<img src="'+ clientData['clientInfo'][0]['first-image-path'] +'" />');
+			this.$el.find('.column-right').append('<img src="'+ clientData['clientInfo'][0]['second-image-path'] +'" />');
 			
-			_$appClientInfo.animate({
-				opacity: 1
-			}, 500, 'linear', function(){
-				_currentSection = 'portfolio-subview';
-			});			
-			*/
+			_doOnce = false;
+			
+			Events.trigger('display-client-info');
+		},
+		
+		'returnToMainStage' : function(){
+			var view = this;
+			
+			view.$el.animate({
+				marginLeft: 0
+			}, 1000, 'easeOutBack');
 		}
 	});
 

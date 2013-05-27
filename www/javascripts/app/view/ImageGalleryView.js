@@ -45,7 +45,6 @@ define(function (require) {
 			'click #portfolio-right': 'displayNextImage',
 			'click #portfolio-left': 'displayPreviousImage',
 			'click #work a' : 'getCurrentTarget'
-			//'click #app-thumb-gallery .left-arrow': 'moveCarouselLeft'
 		},
 
 		'initialize': function (options) {
@@ -80,7 +79,7 @@ define(function (require) {
 			var view = this,
 				$currentTarget = $(e.currentTarget);
 
-			if(!Utilities.isMobile()){
+			if(!Utilities.isMobile() && _$body.hasClass('artist')){
 				if(Utilities.isIpad()){
 					if(Utilities.getOrientation() == 'landscape_view'){	
 						_isGalleryViewable = true;

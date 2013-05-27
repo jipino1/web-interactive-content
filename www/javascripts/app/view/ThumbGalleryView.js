@@ -183,7 +183,7 @@ define(function (require) {
 		},
 		
 		'displayThumbGalleryArrows' : function(e){
-			_$thumbGalleryLeftArrow.addClass('display');//();//css({'display' : 'block'});
+			_$thumbGalleryLeftArrow.addClass('display');
 			_$thumbGalleryRightArrow.show();
 		},
 		

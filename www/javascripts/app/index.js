@@ -36,7 +36,8 @@ define(function (require) {
 			//'HomeTemplate': require('plugins/text!template/HomeTemplate.html'),
 			'TrendTemplate': require('plugins/text!template/TrendTemplate.html'),
 			'ThumbGalleryTemplate': require('plugins/text!template/ThumbGalleryTemplate.html'),
-			'ImageGalleryTemplate': require('plugins/text!template/ImageGalleryTemplate.html')
+			'ImageGalleryTemplate': require('plugins/text!template/ImageGalleryTemplate.html'),
+			'ClientWorkTemplate': require('plugins/text!template/ClientWorkTemplate.html')
 			//'AboutTemplate': require('plugins/text!template/AboutTemplate.html')
 		}
 

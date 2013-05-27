@@ -51,9 +51,7 @@ define(function (require) {
 				'el': '#app-wrapper'
 			});
 			
-			view.portfolioView = new App.views.PortfolioView({
-				'el': '#app-main'
-			});
+			view.portfolioView = new App.views.PortfolioView();
 			
 			_$window.addEventListener('orientationchange', function(){
 				if(view.imageGalleryView.getGalleryVisibility() && Utilities.getOrientation() == 'portrait_view'){

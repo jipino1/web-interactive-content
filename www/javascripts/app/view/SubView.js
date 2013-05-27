@@ -11,29 +11,25 @@ define(function (require) {
 		Backbone = require('backbone'),
 		App = require('global'),
 		Swig = require('swig'),
-		Easing = require('easing');
+		Easing = require('easing'),
+		Utilities = require('helpers/utilities');
 		
 	var _$document = $(document),
-		_$appMain = $('#app-main'),
-		_$workList = $('#work'),
+		_$window = window,
 		_$contact = $('#contact'),
 		_$contactWrapper = $('#contact-wrapper'),
-		_$overlay = $('#overlay'),
-		//_$about = $('#about'),
-		//_$readMore = $('.read-more'),
-		_$gallery = $('.gallery');
+		_$overlay = $('#overlay');
 		
-	var _arrayOfHeights = new Array(541, 453, 458, 500, 520, 593, 545, 520),
+	var _arrayOfHeights = new Array(555, 430, 465, 508, 485, 515, 530, 555, 470), // whopper sacrifice, perspectives, metlife, genesis bakery, dna, baby carrots, vw, cuervo serenade, abc sparks
 		_defaultContainerHeight = 450,
 		_workRowNumber,
 		_workColumnNumber;
 
-	return Backbone.View.extend({		
+	return Backbone.View.extend({	
 		'events': {
-			'click .read-more' : 'expandSection'
-			//'click .gallery' : 'displayGalleryWork'
-			//'click #contact' : 'displayContactInfo'
-			//'click #about' : 'displayAboutInfo'
+			'click .client-work' : 'retrieveClientWork',
+			'click .read-more' : 'expandSection',
+			'click #work dl a' : 'linkToExternal'
 		},
 
 		'initialize': function (options) {
@@ -41,6 +37,8 @@ define(function (require) {
 
 			_.bindAll(this);
 
+			Events.bind('display-client-info', view.displayClientInfo);
+			Events.bind('return-to-stage', view.displayMainContent);
 			view.render();
 
 			log('Backbone : Global : SubView : Initialized');
@@ -48,12 +46,7 @@ define(function (require) {
 
 		'render': function () {
 			var view = this;
-
-			/*view.homeTemplate = swig.compile(App.templates.HomeTemplate);
-			view.$el.append(view.homeTemplate({
-				'url': 'read'
-			}));*/
-			
+				
 			_$contact.on('click', function(e){
 				e.preventDefault();
 				var view = this;
@@ -71,14 +64,38 @@ define(function (require) {
 					_$overlay.hide();
 				});				
 			});
+		},
+		
+		'retrieveClientWork' : function(e){
+			e.preventDefault();
 			
-			/*_$about.on('click', function(e){
-				e.preventDefault();
+			var view = this,
+				$currentTarget = $(e.currentTarget);
 				
-				var view = this;
-				
-				view.$el.fadeTo(1000, 0);
-			});*/
+			view.clientWorkTemplate = swig.compile(App.templates.ClientWorkTemplate);
+			view.$el.find('#app-client-info').append(view.clientWorkTemplate());
+			
+			Events.trigger('retrieve-client-data', $currentTarget.attr('href'));
+		},
+		
+		'displayMainContent' : function(){
+			var view = this;
+			
+			view.$el.find('#work').animate({
+				marginLeft: 0
+			}, 750, 'linear', function(){
+				view.$el.find('#app-client-info').empty();
+			});			
+		},
+		
+		'displayClientInfo' : function(){
+			if(!Utilities.isMobile()){
+				this.$el.delay(750).find('#work').animate({
+					marginLeft: -960
+				}, 750, 'linear', function(){
+					$('html, body').animate({scrollTop: '0px'}, 800);
+				});
+			}
 		},
 		
 		'expandSection' : function (e) {
@@ -95,31 +112,13 @@ define(function (require) {
 				$(this).hide();	
 			});
 			
-			_$workList.find('.column:nth-child('+ _workColumnNumber +')').find('li:nth-child('+ _workRowNumber +')').animate({
+			this.$el.find('#work').find('.column:nth-child('+ _workColumnNumber +')').find('li:nth-child('+ _workRowNumber +')').animate({
 				height: containerHeight+'px'
 			}, 700, 'easeOutBack', function(){
 				$(this).find('.more-content').fadeTo(1000, 1);
 			});
 		},
-		/*
-		'contractPage' : function (e) {
-			e.preventDefault();
-			
-			var view = this,
-				$currentTarget = $(e.currentTarget);
-				
-			$currentTarget.hide();
-			_$readMore = $('#read-more');
-			
-			_$initialIntro.animate({
-				height: '330px'
-			}, 700, 'easeOutBack');
-			
-			_$addViewInfo.fadeTo(700, 0);
-			
-			_$readMore.show();
-		},
-		*/
+
 		'calculateContainerHeight' : function(dataClient){
 			var containerHeight;
 			
@@ -148,6 +147,9 @@ define(function (require) {
 				case "cuervoserenate":
 					containerHeight = _arrayOfHeights[7];
 					break;
+				case "sparks":
+					containerHeight = _arrayOfHeights[8];
+					break;
 				default:
 					containerHeight = _defaultContainerHeight;
 			}
@@ -164,19 +166,13 @@ define(function (require) {
 			e.preventDefault();
 			
 			var view = this,
-					   $currentTarget = $(e.currentTarget),
-					   $currentTargetHref = $currentTarget.attr('href');
+			    $currentTarget = $(e.currentTarget),
+				$currentTargetHref = $currentTarget.attr('href');
 			
-		//	if(_$body.hasClass('portfolio')){
-		//		Events.trigger('display-subview', $currentTarget.attr('data-client'));
-				//window.open($currentTargetHref, '_self');
-		//	}else {
-				Events.trigger('display-selected', $currentTarget);
-		//	}
+			Events.trigger('display-selected', $currentTarget);
 		},
 		
 		'displayContactInfo' : function(e){
-			log('hola');
 			e.preventDefault();
 			
 			var view = this,
@@ -184,26 +180,21 @@ define(function (require) {
 				
 			$currentTarget.animate({
 				opacity: 1
-			}, 1000, 'linear');
+			}, 1000, 'linear');		
+		},
+		
+		'linkToExternal' : function(e){
+			e.preventDefault();
 			
-				
+			var $currentTarget = $(e.currentTarget);
+			
+			_$window.open($currentTarget.attr('href'), '_blank');
 		},
 		
 		'displayAboutInfo' : function(e){
 			e.preventDefault();
 			
-			log('about');
 		}
-		/*
-		'followMenuLinks' : function(e){
-			var view = this,
-				$currentTarget = $(e.currentTarget);
-			//	log('over link');
-			if($currentTarget.hasClass('active')){
-				//log('active link');
-			}
-		}
-		*/
 	});
 
 });
