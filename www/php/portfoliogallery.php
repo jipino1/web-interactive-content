@@ -5,6 +5,7 @@ include_once('config.php');
 	
 	$thumbArray = array(
 					"thumbs"=>array(
+					    array("src"=>$root."images/thumbs/portfolio/portfolio.mdc.jpg", "fs_height"=>"350", "fs_width"=>"700", "client"=>"mdc", "url"=>"/portfolio/mdc.html"),
 						array("src"=>$root."images/thumbs/portfolio/portfolio.dominos.jpg", "fs_height"=>"350", "fs_width"=>"700", "client" => "dominos", "url" => "/portfolio/dominos.html"),
 						array("src"=>$root."images/thumbs/portfolio/portfolio.dna.jpg", "fs_height"=>"350", "fs_width"=>"700", "client" => "dinnernotart", "url" => "/portfolio/dinnernotart.html"),
 						array("src"=>$root."images/thumbs/portfolio/portfolio.jell-o.jpg", "fs_height"=>"350", "fs_width"=>"700", "client" => "jello", "url" => "/portfolio/jello.html"),

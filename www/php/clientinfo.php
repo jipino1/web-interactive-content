@@ -5,6 +5,13 @@ include_once('config.php');
 	class client_info{
 		public function return_client_information($client){
 			switch($client){
+				case "mdc":
+					$type = "Website";
+					$url = "http://www.mdc-partners.com/";
+					$client = "MDC Partners";
+					$firstImgPath = "$root"."images/clients/mdc.1.jpg";
+					$secondImgPath = $root."images/clients/mdc.2.jpg";
+					break;
 				case "dna":
 					$type = "Website, iPad® App";
 					$url = "http://www.dinnernotart.com";

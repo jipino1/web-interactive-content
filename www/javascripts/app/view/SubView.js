@@ -20,7 +20,7 @@ define(function (require) {
 		_$contactWrapper = $('#contact-wrapper'),
 		_$overlay = $('#overlay');
 		
-	var _arrayOfHeights = new Array(555, 430, 465, 508, 485, 515, 530, 555, 470), // whopper sacrifice, perspectives, metlife, genesis bakery, dna, baby carrots, vw, cuervo serenade, abc sparks
+	var _arrayOfHeights = new Array(555, 430, 465, 508, 485, 515, 530, 555, 470, 420), // mdc, whopper sacrifice, perspectives, metlife, genesis bakery, dna, baby carrots, vw, cuervo serenade, abc sparks
 		_defaultContainerHeight = 450,
 		_workRowNumber,
 		_workColumnNumber;
@@ -123,6 +123,9 @@ define(function (require) {
 			var containerHeight;
 			
 			switch(dataClient){
+				case "mdc":
+					containerHeight = _arrayOfHeights[9];
+					break;
 				case "whoppersacrifice":
 					containerHeight = _arrayOfHeights[0];
 					break;

@@ -26,7 +26,8 @@ define(function (require) {
 			vws: 'What kind of car are you most related to? The VW Routan, the VW Passat, the VW Jetta? With the VW Analizer, you don\'t have to play the guess game anymore; let the app decide for you based on the information you have on your Facebook user profile.',
 			cuervoserenate: 'In a very subtle but honest way, how can you tell your friends that the way they prepare their Margarita sucks? Well, you can tell them straight to their faces OR you can serenate them using Facebook app Cuervo Serenate. ',
 			dominos: 'Domino\'s Pizza not only redesign its website, it also updated its pizzas, making them tastier than ever.',
-			oldnavy: 'Oldnavy provides afforable clothes for all the family, and during Thanksgiving, it becomes a savings Gooble Palooza for everyone.'
+			oldnavy: 'Oldnavy provides afforable clothes for all the family, and during Thanksgiving, it becomes a savings Gooble Palooza for everyone.',
+			mdc: 'If you want to know more about some of the best advertising agencies around the world, there is only one place to look, MDC Partners.  There is something for everyone.'
 		},
 
 		'initialize': function () {}
